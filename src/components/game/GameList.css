@@ -1,0 +1,7 @@
+.games {
+    border-style: groove;
+}
+
+.game {
+    border-style: inherit;
+}
