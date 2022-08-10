@@ -4,6 +4,7 @@ import { Register } from "../components/auth/Register"
 import { GameDetails } from "../components/game/GameDetail"
 import { GameForm } from "../components/game/GameForm"
 import { GameList } from "../components/game/GameList"
+import { ReviewForm } from "../components/game/ReviewForm"
 import { Authorized } from "./Authorized"
 
 export const ApplicationViews = () => {
@@ -15,7 +16,8 @@ export const ApplicationViews = () => {
                 <Route path="/" element={<GameList/>} />
                 <Route path="/games" element={<GameList />} />
                 <Route path="/games/:gameId" element={<GameDetails />} />
-                <Route path="/games/new" element={<GameForm />} /> 
+                <Route path="/games/new" element={<GameForm />} />
+                <Route path="/games/:gameId/review" element={<ReviewForm />} /> 
             </Route>
         </Routes>
     </>

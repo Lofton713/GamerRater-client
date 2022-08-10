@@ -11,7 +11,7 @@ export const GameDetails = () => {
 
     useEffect(() => {
         GetSingleGame(gameId).then(setGame)
-    }, [])
+    }, [gameId])
 
 
 
@@ -19,9 +19,9 @@ export const GameDetails = () => {
         <>
         <h1> Game Details </h1>
         <article className="game" key={`game--${game.id}`}>
-                <header>
-                    <h3>{game.title}</h3>
-                </header>
+            <header>
+                <h3>{game.title}</h3>
+            </header>
                 <div>
                     <ul>
                         <li> Maker: {game.maker}</li>
@@ -38,8 +38,9 @@ export const GameDetails = () => {
                         </li>
                     </ul>
                 </div>
-                
-            </article>
+        </article>
+        <button onClick={(() => Navigate(`/games/${game.id}/review`))}> Review Game </button>
+
         </>
     )
 }
