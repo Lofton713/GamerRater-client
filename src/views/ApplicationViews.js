@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom"
 import { Login } from "../components/auth/Login"
 import { Register } from "../components/auth/Register"
 import { GameDetails } from "../components/game/GameDetail"
+import { GameForm } from "../components/game/GameForm"
 import { GameList } from "../components/game/GameList"
 import { Authorized } from "./Authorized"
 
@@ -13,7 +14,8 @@ export const ApplicationViews = () => {
             <Route element={<Authorized />}>
                 <Route path="/" element={<GameList/>} />
                 <Route path="/games" element={<GameList />} />
-                <Route path="/games/:gameId" element={<GameDetails />} /> 
+                <Route path="/games/:gameId" element={<GameDetails />} />
+                <Route path="/games/new" element={<GameForm />} /> 
             </Route>
         </Routes>
     </>

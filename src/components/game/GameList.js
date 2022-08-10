@@ -15,6 +15,9 @@ export const GameList = () => {
     }, [])
 
     return (
+        <>
+        <button onClick={(() => Navigate('/games/new'))}> Add New Game </button>
+        <h1>Games</h1>
         <article className="games">
             {
                 games.map(game => {
@@ -26,5 +29,6 @@ export const GameList = () => {
                 })
             }
         </article>
+        </>
     )
 }
