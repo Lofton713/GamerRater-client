@@ -13,7 +13,7 @@ export const ApplicationViews = () => {
             <Route element={<Authorized />}>
                 <Route path="/" element={<GameList/>} />
                 <Route path="/games" element={<GameList />} />
-                <Route path="/games/:GameId" element={<GameDetails />} /> 
+                <Route path="/games/:gameId" element={<GameDetails />} /> 
             </Route>
         </Routes>
     </>
