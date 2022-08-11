@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { GetSingleGame } from "../../managers/GameManager"
+import { GetReviews } from "../../managers/ReviewManager"
 
 export const GameDetails = () => {
 
@@ -8,10 +9,23 @@ export const GameDetails = () => {
     const Navigate = useNavigate()
 
     const [ game, setGame] = useState({})
+    const [ reviews, setReviews ] = useState([])
+    const [ filteredReviews, setfilteredReviews] = useState([])
 
     useEffect(() => {
         GetSingleGame(gameId).then(setGame)
     }, [gameId])
+
+    useEffect(() => {
+        GetReviews().then(data => setReviews(data))
+    }, [])
+
+    useEffect(() => {
+        const gameReviews = reviews.filter(review => review.gameId = gameId )
+        setfilteredReviews(gameReviews)
+    },
+    [reviews]
+    )
 
 
 
@@ -40,6 +54,16 @@ export const GameDetails = () => {
                 </div>
         </article>
         <button onClick={(() => Navigate(`/games/${game.id}/review`))}> Review Game </button>
+        <h2>Reviews</h2>
+        <section className="reviews">
+            {filteredReviews.map(
+                (review) => {
+                    return <article className="review" key={`review--${review.id}`}>
+                        <p>{review.review}</p>
+                    </article>
+                }
+            )}
+        </section>
 
         </>
     )

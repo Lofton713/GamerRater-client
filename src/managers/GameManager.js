@@ -26,3 +26,14 @@ export const CreateGame = (game) => {
         body: JSON.stringify(game)
     }).then(GetGames)
 }
+
+export const editGame = (gameId, game) => {
+    return fetch(`http://localhost:8000/games/${gameId}`, {
+        method: "PUT",
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("gamer_token")}`,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(game)
+    })
+}

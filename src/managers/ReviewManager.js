@@ -9,3 +9,12 @@ export const CreateReview = (review) => {
         })
         .then(res => res.json())
 }
+
+export const GetReviews = () => {
+    return fetch("http://localhost:8000/reviews", {
+        headers:{
+            "Authorization": `Token ${localStorage.getItem("gamer_token")}`
+        }
+    })
+        .then(response => response.json())
+}
